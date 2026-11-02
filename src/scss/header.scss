@@ -1,0 +1,361 @@
+//    HEADER - DEFAULT / DESKTOP
+header.header {
+    width: 100%;
+    min-height: 110px;
+
+    padding: 20px 4%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+    z-index: 10;
+}
+
+// LOGO
+.logo {
+    display: block;
+    flex-shrink: 0;
+
+    width: 190px;
+    text-decoration: none;
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+// NAVIGATION
+header.header nav.navigation {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 35px;
+
+    a {
+        font-family: 'Caveat', cursive;
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 2px;
+
+        text-transform: none;
+        text-decoration: none;
+        white-space: nowrap;
+
+        color: #111;
+
+        &:hover {
+            opacity: 0.7;
+        }
+
+        &.active {
+            text-decoration: underline;
+            text-underline-offset: 6px;
+        }
+    }
+
+    .login-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        min-width: 145px;
+        padding: 10px 35px;
+
+        background: #ffda78;
+        border: none;
+        border-radius: 35px;
+
+        font-family: 'Caveat', cursive;
+        font-size: 24px;
+        letter-spacing: 2px;
+
+        color: #111;
+        cursor: pointer;
+    }
+}
+
+
+//    HAMBURGER MENU
+
+.menu-toggle {
+    display: none;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+
+    z-index: 12;
+
+    span {
+        display: block;
+        width: 22px;
+        height: 2px;
+
+        margin: 5px 0;
+
+        background: #111;
+        transition: 0.3s ease;
+    }
+}
+
+
+//    TABLET VIEW
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    header.header {
+        min-height: 90px;
+        padding: 20px 5%;
+
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 125px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    header.header nav.navigation {
+        display: none;
+
+        position: absolute;
+        top: 80px;
+        right: 5%;
+
+        width: 190px;
+        padding: 22px;
+
+        background: #ffda78;
+        border-radius: 15px;
+
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+
+        a {
+            font-size: 20px;
+        }
+
+        .login-button {
+            min-width: 120px;
+        }
+
+        &.open {
+            display: flex;
+        }
+    }
+}
+
+
+//    PHONE VIEW
+
+@media (max-width: 480px) {
+
+    header.header {
+        min-height: 115px;
+        padding: 25px 8%;
+
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-top: 12px;
+
+        span {
+            width: 35px;
+            height: 2px;
+            margin: 8px 0;
+        }
+    }
+
+    header.header nav.navigation {
+        display: none;
+
+        position: absolute;
+        top: 85px;
+        right: 5%;
+
+        width: 180px;
+        padding: 20px;
+
+        background: #ffda78;
+        border-radius: 15px;
+
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+
+        &.open {
+            display: flex;
+        }
+    }
+}
+
+
+//    LOGIN PAGE HEADER - DESKTOP
+
+body.login-active {
+
+    header.header {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 130px;
+        min-height: 130px;
+
+        padding: 0 4.5%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        background: #ffda78;
+        z-index: 100;
+    }
+
+    .logo {
+        width: 155px;
+    }
+
+    header.header nav.navigation {
+        display: flex;
+        width: auto;
+        max-width: none;
+
+        justify-content: flex-end;
+        align-items: center;
+
+        gap: 35px;
+
+        a {
+            color: #000;
+            font-size: 23px;
+            text-decoration: none;
+            text-transform: none;
+            white-space: nowrap;
+        }
+
+        .login-button {
+            width: 145px;
+            min-width: 145px;
+            height: 48px;
+
+            padding: 0;
+
+            border-radius: 30px;
+            background: #ffda78;
+
+            box-shadow: 0 7px 5px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
+
+
+//    LOGIN PAGE HEADER - TABLET
+
+@media (min-width: 481px) and (max-width: 1024px) {
+
+    body.login-active {
+
+        header.header {
+            height: 100px;
+            min-height: 100px;
+
+            padding: 0 5%;
+        }
+
+        .logo {
+            width: 90px;
+        }
+
+        header.header nav.navigation {
+            display: none;
+        }
+
+        .menu-toggle {
+            display: block;
+
+            span {
+                width: 22px;
+                height: 1.5px;
+                background: #000;
+            }
+        }
+    }
+}
+
+
+//    LOGIN PAGE HEADER - PHONE
+
+@media (max-width: 480px) {
+
+    body.login-active {
+
+        header.header {
+            height: 115px;
+            min-height: 115px;
+
+            padding: 25px 8%;
+
+            align-items: flex-start;
+        }
+
+        .logo {
+            width: 150px;
+        }
+
+        .menu-toggle {
+            display: block;
+            margin-top: 12px;
+
+            span {
+                width: 35px;
+                height: 2px;
+                background: #000;
+            }
+        }
+
+        header.header nav.navigation {
+            display: none;
+
+            position: absolute;
+            top: 85px;
+            right: 5%;
+
+            width: 180px;
+            padding: 20px;
+
+            background: #fff;
+            border-radius: 15px;
+
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+
+            &.open {
+                display: flex;
+            }
+        }
+    }
+}
