@@ -47,7 +47,7 @@ JungleCook/
 
 1. Clone this repository:
    ```bash
-   git clone YOUR_GITHUB_REPOSITORY_URL
+   git clone https://github.com/onxstigb/JungleCook
    ```
 
 2. Navigate into the project folder:
