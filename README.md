@@ -73,7 +73,7 @@ JungleCook/
 
 ## Deployment
 
-**Web4:** (https://in-info-web4.luddy.indianapolis.iu.edu/~obrookin/JungleCook6/#home)
+**Web4:** https://in-info-web4.luddy.indianapolis.iu.edu/~obrookin/JungleCook6/#home
 
 ## Repository
 **GitHub:** https://github.com/onxstigb/JungleCook
