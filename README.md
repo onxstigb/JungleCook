@@ -129,7 +129,7 @@ Vite generates the production-ready files inside the `dist` directory.
 
 ## Deployment
 
-**Web4:** https://in-info-web4.luddy.indianapolis.iu.edu/~obrookin/JungleCook/dist/#home
+**Web4:** https://in-info-web4.luddy.indianapolis.iu.edu/~obrookin/JungleCook7/#home
 
 ## Repository
 **GitHub:** https://github.com/onxstigb/JungleCook
