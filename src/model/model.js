@@ -1,4 +1,3 @@
-
 const pages = import.meta.glob('../pages/*.js');
 
 export async function loadPage(pageID) {
