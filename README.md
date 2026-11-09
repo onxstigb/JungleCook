@@ -65,7 +65,7 @@ JungleCook/
 1. Clone this repository:
 
    ```bash
-   git clone https://github.com/onxstigb/JungleCook.git
+   git clone https://github.com/onxstigb/JungleCook
    ```
 
 2. Navigate into the project folder:
@@ -129,7 +129,7 @@ Vite generates the production-ready files inside the `dist` directory.
 
 ## Deployment
 
-**Web4:** https://in-info-web4.luddy.indianapolis.iu.edu/~obrookin/JungleCook/dist
+**Web4:** https://in-info-web4.luddy.indianapolis.iu.edu/~obrookin/JungleCook6/#home
 
 ## Repository
 **GitHub:** https://github.com/onxstigb/JungleCook
