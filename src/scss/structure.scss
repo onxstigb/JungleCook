@@ -36,14 +36,14 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
 
-    
+// Login page background
 .page-container.login-page-container {
     background: #ffda78;
 }
 
-}
-
+// App layout
 #app {
     flex: 1;
     display: flex;
@@ -54,8 +54,8 @@ h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 16px;
 }
 
+// Mobile layout
 @media (max-width: 480px) {
-
     body {
         padding: 0;
     }

@@ -20,15 +20,42 @@ export async function loadPage(pageID) {
 
         app.innerHTML = module.default();
 
-        document.body.classList.toggle(
-    'login-active',
-    pageID === 'login'
-);
+        // Initialize page-specific functionality
+        if (typeof module.init === 'function') {
+            await module.init();
+        }
 
-document.body.classList.toggle(
-    'create-recipe-active',
-    pageID === 'createRecipe'
-);
+        // Update page-specific body classes
+        document.body.classList.toggle(
+            'login-active',
+            pageID === 'login'
+        );
+
+        document.body.classList.toggle(
+            'create-recipe-active',
+            pageID === 'createRecipe'
+        );
+
+        document.body.classList.toggle(
+            'browse-active',
+            pageID === 'browse'
+        );
+
+        document.body.classList.toggle(
+        'your-recipes-active',
+        pageID === 'your-recipes'
+        );
+
+        document.body.classList.toggle(
+        'view-recipe-active',
+        pageID === 'viewRecipe'
+        );
+
+        document.body.classList.toggle(
+        'edit-recipe-active',
+        pageID === 'editRecipe'
+        );
+
     } catch (error) {
         console.error('Error loading page:', error);
         app.innerHTML = '<h1>Unable to load page.</h1>';

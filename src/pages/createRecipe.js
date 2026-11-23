@@ -1,13 +1,18 @@
+import { auth } from '../services/firebase.js';
+
 export default function createRecipe() {
+    const user = auth.currentUser;
+    const firstName = user?.displayName?.split(' ')[0] || 'there';
+
     return `
         <section class="create-recipe-page">
             <div class="create-recipe-container">
 
                 <h1 class="create-recipe-greeting">
-                    Hey there, create your recipe!
+                    Hey ${firstName}, create your recipe!
                 </h1>
 
-                <form class="create-recipe-form">
+                <form class="create-recipe-form" id="create-recipe-form">
 
                     <div class="recipe-image-upload">
                         <label for="recipe-image">Add Recipe Image</label>
@@ -21,10 +26,14 @@ export default function createRecipe() {
                             id="recipe-image"
                             name="recipeImage"
                             accept="image/*"
+                            required
                         >
+
+                        <p id="selected-image-name"></p>
                     </div>
 
                     <div class="recipe-basic-info">
+
                         <div class="recipe-form-group">
                             <label for="recipe-name">Recipe Name</label>
                             <input
@@ -64,12 +73,14 @@ export default function createRecipe() {
                                 required
                             >
                         </div>
+
                     </div>
 
                     <div class="recipe-list-section">
                         <label>Enter Ingredients:</label>
 
                         <div id="ingredient-list">
+
                             <div class="dynamic-recipe-field">
                                 <input
                                     type="text"
@@ -96,6 +107,7 @@ export default function createRecipe() {
                                     required
                                 >
                             </div>
+
                         </div>
 
                         <button
@@ -110,6 +122,7 @@ export default function createRecipe() {
                         <label>Enter Instructions:</label>
 
                         <div id="instruction-list">
+
                             <div class="dynamic-recipe-field">
                                 <input
                                     type="text"
@@ -136,6 +149,7 @@ export default function createRecipe() {
                                     required
                                 >
                             </div>
+
                         </div>
 
                         <button
@@ -149,6 +163,12 @@ export default function createRecipe() {
                     <button type="submit" class="create-recipe-submit">
                         Create Recipe
                     </button>
+
+                    <p
+                        class="recipe-form-message"
+                        id="recipe-form-message"
+                        role="status"
+                    ></p>
 
                 </form>
             </div>
