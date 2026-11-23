@@ -1,0 +1,34 @@
+[
+    {
+        "id": "recipe-001",
+        "name": "Supreme Pizza",
+        "description": "Make pizza night super! This pizza is topped with delicious ingredients and plenty of cheese.",
+        "image": "recipe-pizza.jpg",
+        "totalTime": "1h 24min",
+        "servings": 4
+    },
+    {
+        "id": "recipe-002",
+        "name": "Classic Burger",
+        "description": "Sink your teeth into a delicious restaurant-style hamburger recipe made from lean beef, fresh toppings, and a toasted bun.",
+        "image": "recipe-burger.jpg",
+        "totalTime": "30 min",
+        "servings": 4
+    },
+    {
+        "id": "recipe-003",
+        "name": "Chicken Biryani",
+        "description": "Chicken Biryani is a bold and flavorful Indian dish with crazy flavor blends of chicken with rice, peppers, and fragrant spices.",
+        "image": "recipe-pilaf.jpg",
+        "totalTime": "1h 15min",
+        "servings": 6
+    },
+    {
+        "id": "recipe-004",
+        "name": "Ch. Chow Mein",
+        "description": "A great Chow Mein comes down to the sauce. It takes more than just soy sauce and sugar. Enjoy this flavorful noodle dish with vegetables.",
+        "image": "recipe-chowmein.jpg",
+        "totalTime": "20 min",
+        "servings": 4
+    }
+]

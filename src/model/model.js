@@ -21,9 +21,14 @@ export async function loadPage(pageID) {
         app.innerHTML = module.default();
 
         document.body.classList.toggle(
-            'login-active',
-            pageID === 'login'
-        );
+    'login-active',
+    pageID === 'login'
+);
+
+document.body.classList.toggle(
+    'create-recipe-active',
+    pageID === 'createRecipe'
+);
     } catch (error) {
         console.error('Error loading page:', error);
         app.innerHTML = '<h1>Unable to load page.</h1>';

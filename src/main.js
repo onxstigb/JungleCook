@@ -148,6 +148,38 @@ async function handleLogout(event) {
 }
 
 function initApp() {
+document.addEventListener('click', (event) => {
+    const button = event.target.closest('[data-add]');
+
+    if (!button) return;
+
+    const type = button.dataset.add;
+    const list = document.querySelector(`#${type}-list`);
+
+    if (!list) return;
+
+    const count = list.querySelectorAll('input').length + 1;
+
+    const field = document.createElement('div');
+    field.classList.add('dynamic-recipe-field');
+
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = type === 'ingredient'
+        ? 'ingredients[]'
+        : 'instructions[]';
+
+    input.placeholder = type === 'ingredient'
+        ? `Ingredient #${count}`
+        : `Instruction #${count}`;
+
+    input.required = true;
+
+    field.appendChild(input);
+    list.appendChild(field);
+    input.focus();
+});
+
     if (!window.location.hash) {
         window.location.hash = 'home';
     }
