@@ -2,30 +2,77 @@
 
 ## Project Description
 
-The Jungle Cook is a responsive recipe website created for N315. This project builds upon the original Homework 6 prototype and adds Firebase Authentication and dynamic navigation.
+The Jungle Cook is a responsive recipe website created for N315. This project builds upon the original Homework 6 prototype and expands it into a fully functional recipe application using Firebase Authentication and Cloud Firestore.
 
-The website includes a Home page and a Login page with Login and Sign Up forms. The design is responsive and adapts to desktop, tablet, and mobile screen sizes.
+Users can create an account, log in, browse sample recipes provided in a local JSON file, and manage their own recipes. Signed-in users can create, view, edit, and delete personal recipes. The website includes responsive layouts for desktop and tablet screen sizes, including the required 1024 × 768 viewport.
+
+## Project Links
+
+- **GitHub Repository:** https://github.com/onxstigb/JungleCook
+- **Live Web4 Website:** 
 
 ## Features
 
-- Responsive Home page layout
-- Responsive Login and Sign Up sections
-- User registration using email and password
-- User login using Firebase Authentication
-- User account creation with first and last name
-- Dynamic navigation that updates based on authentication status
-- Navigation between pages using JavaScript routing
-- Responsive navigation menu for smaller screens
-- Reusable header and footer
-- SCSS styling organized into separate files
+### Website and Navigation
+- Responsive Home page.
+- Responsive Login and Sign Up pages.
+- Browse page displaying sample recipes from a local JSON file.
+- Your Recipes page displaying recipes created by the signed-in user.
+- Individual View Recipe page.
+- Edit Recipe page.
+- Reusable header and footer.
+- Dynamic navigation that updates based on authentication status.
+- JavaScript hash-based navigation between pages.
+- Responsive navigation menu for smaller screens.
+- SCSS styling organized into separate files.
+
+### Firebase Authentication
+- User registration using first name, last name, email, and password.
+- User login using email and password.
+- User logout.
+- Navigation options update based on whether a user is signed in.
+
+### Recipe Management
+
+Signed-in users can:
+- Create a recipe with a name, description, image, total time, servings, ingredients, and instructions.
+- View their saved recipes.
+- Open an individual recipe to see its details.
+- Edit existing recipe information.
+- Replace recipe images.
+- Add additional ingredient and instruction fields.
+- Delete a recipe after confirming the action.
+
+Personal recipes are stored in the Cloud Firestore `recipes` collection and associated with the Firebase user ID of the person who created them. The application retrieves the signed-in user's recipes and checks recipe ownership before allowing updates or deletion.
+
+### Recipe Data and Images
+- Sample recipes are stored in a local JSON file and displayed on the Browse page.
+- User-created recipes are stored in Cloud Firestore.
+- Recipe images are selected using a file input.
+- Images are resized and compressed in the browser using the Canvas API before being saved.
+- Compressed image data is stored in the Firestore recipe document. Firebase Storage is not used.
+
+### User Feedback
+- The application displays feedback when recipe data is loading or being saved.
+- Success messages confirm completed actions.
+- Error messages inform users when an operation cannot be completed.
+- A confirmation prompt appears before a recipe is deleted.
+
+### Responsive Design
+- Responsive layouts for desktop and tablet screen sizes.
+- Navigation adapts to smaller screens.
+- Recipe cards and forms adjust to different viewport sizes.
+- Designed to support the required 1024 × 768 tablet viewport.
 
 ## Technologies Used
 
 - HTML5
 - SCSS / CSS
-- JavaScript
+- JavaScript (ES modules)
 - Vite
 - Firebase Authentication
+- Cloud Firestore
+- JSON
 - Git and GitHub
 
 ## Project Structure
@@ -37,11 +84,19 @@ JungleCook/
 ├── src/
 │   ├── assets/
 │   │   └── images/
+│   ├── data/
+│   │   └── recipes.json
 │   ├── model/
-│   │   └── model.js
+│   │   ├── model.js
+│   │   └── recipeModel.js
 │   ├── pages/
 │   │   ├── home.js
-│   │   └── login.js
+│   │   ├── login.js
+│   │   ├── browse.js
+│   │   ├── createRecipe.js
+│   │   ├── your-recipes.js
+│   │   ├── viewRecipe.js
+│   │   └── editRecipe.js
 │   ├── services/
 │   │   ├── auth.js
 │   │   └── firebase.js
@@ -51,6 +106,11 @@ JungleCook/
 │   │   ├── home.scss
 │   │   ├── footer.scss
 │   │   ├── login.scss
+│   │   ├── browse.scss
+│   │   ├── createRecipe.scss
+│   │   ├── yourRecipes.scss
+│   │   ├── viewRecipe.scss
+│   │   ├── editRecipe.scss
 │   │   └── styles.scss
 │   └── main.js
 ├── .env
@@ -58,79 +118,4 @@ JungleCook/
 ├── index.html
 ├── package.json
 └── README.md
-```
-
-## Installation and Setup
-
-1. Clone this repository:
-
-   ```bash
-   git clone https://github.com/onxstigb/JungleCook
-   ```
-
-2. Navigate into the project folder:
-
-   ```bash
-   cd JungleCook
-   ```
-
-3. Install dependencies:
-
-   ```bash
-   npm install
-   ```
-
-4. Create a `.env` file in the root project directory and add your Firebase configuration:
-
-   ```env
-   VITE_FIREBASE_API_KEY=your_api_key
-   VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
-   VITE_FIREBASE_PROJECT_ID=your_project_id
-   VITE_FIREBASE_STORAGE_BUCKET=your_storage_bucket
-   VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
-   VITE_FIREBASE_APP_ID=your_app_id
-   ```
-
-5. Enable Email/Password authentication in the Firebase Console under Authentication → Sign-in method.
-
-6. Start the development server:
-
-   ```bash
-   npm run dev
-   ```
-
-7. Open the local URL provided by Vite in your browser.
-
-## Pages
-
-- **Home:** Introduces The Jungle Cook website.
-- **Login:** Includes Login and Sign Up forms for user authentication.
-
-## Firebase Authentication
-
-Firebase Authentication is used to manage user accounts.
-
-Users can:
-- Create an account using their first name, last name, email, and password.
-- Log in using their registered email and password.
-- See navigation options update based on their authentication status.
-
-Firebase configuration is stored in environment variables in the `.env` file.
-
-## Building for Production
-
-To create a production build, run:
-
-```bash
-npm run build
-```
-
-Vite generates the production-ready files inside the `dist` directory.
-
-## Deployment
-
-**Web4:** https://in-info-web4.luddy.indianapolis.iu.edu/~obrookin/JungleCook7/#home
-
-## Repository
-**GitHub:** https://github.com/onxstigb/JungleCook
 

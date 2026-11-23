@@ -1,11 +1,11 @@
-
 import './scss/styles.scss';
 
 import { loadPage } from './model/model.js';
 
 import {
     createRecipe as createRecipeRecord,
-    updateRecipe
+    updateRecipe,
+    deleteRecipe
 } from './model/recipeModel.js';
 
 import {
@@ -436,6 +436,44 @@ async function handleEditRecipeSubmit(event) {
     }
 }
 
+async function handleDeleteRecipe(event) {
+    const button = event.target.closest('[data-delete-recipe]');
+
+    if (!button) return;
+
+    const recipeId = button.dataset.deleteRecipe;
+
+    const confirmed = confirm(
+        'Are you sure you want to delete this recipe? This action cannot be undone.'
+    );
+
+    if (!confirmed) return;
+
+    try {
+        button.disabled = true;
+        button.textContent = 'Deleting...';
+
+        await deleteRecipe(recipeId);
+
+        alert('Recipe deleted successfully!');
+
+        window.location.hash = 'your-recipes';
+
+        changeRoute();
+
+    } catch (error) {
+        console.error('Error deleting recipe:', error);
+
+        alert(
+            error.message ||
+            'Unable to delete recipe. Please try again.'
+        );
+
+        button.disabled = false;
+        button.textContent = 'Delete';
+    }
+}
+
 
 function initApp() {
     if (!window.location.hash) {
@@ -456,6 +494,7 @@ function initApp() {
     );
 
     document.addEventListener('click', handleAddField);
+    document.addEventListener('click', handleDeleteRecipe);
 
     const menuToggle = document.querySelector('#menuToggle');
     const navigation = document.querySelector('#navigation');
